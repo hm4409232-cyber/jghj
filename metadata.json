@@ -1,0 +1,6 @@
+{
+  "name": "Jamia Naqshbandia Barvi Rizvia Management System",
+  "description": "A bilingual management system for Jamia Naqshbandia Barvi Rizvia to manage student profiles, attendance, academic reports, and finance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

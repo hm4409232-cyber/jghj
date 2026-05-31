@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "student": {
+      "title": "Student",
+      "description": "Student profile information",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "name": { "type": "string" },
+        "fatherName": { "type": "string" },
+        "caste": { "type": "string" },
+        "age": { "type": "number" },
+        "address": { "type": "string" },
+        "mobile": { "type": "string" },
+        "gmail": { "type": "string" },
+        "admissionDate": { "type": "string", "format": "date" },
+        "reference": { "type": "string" }
+      },
+      "required": ["studentId", "name", "fatherName"]
+    },
+    "attendance": {
+      "title": "Attendance",
+      "description": "Daily student attendance and prayer records",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "status": {
+          "type": "object",
+          "properties": {
+            "fajr": { "type": "boolean" },
+            "zuhr": { "type": "boolean" },
+            "asr": { "type": "boolean" },
+            "maghrib": { "type": "boolean" },
+            "isha": { "type": "boolean" }
+          }
+        }
+      },
+      "required": ["studentId", "date"]
+    },
+    "finance": {
+      "title": "Finance",
+      "description": "Income and expense records",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["income", "expense"] },
+        "description": { "type": "string" },
+        "amount": { "type": "number" },
+        "date": { "type": "string", "format": "date" },
+        "notes": { "type": "string" }
+      },
+      "required": ["type", "amount", "date"]
+    }
+  },
+  "firestore": {
+    "/students/{studentId}": {
+      "schema": "student",
+      "description": "Collection of students"
+    },
+    "/attendance/{attendanceId}": {
+      "schema": "attendance",
+      "description": "Attendance records"
+    },
+    "/finance/{financeId}": {
+      "schema": "finance",
+      "description": "Income and expense records"
+    }
+  }
+}
